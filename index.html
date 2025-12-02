@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home - Prototipo T01</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo" aria-label="logo">
+        <!-- Logo placeholder -->
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="4" fill="#111" />
+          <text x="50%" y="56%" text-anchor="middle" fill="#fff" font-size="10" font-family="Arial" dy=".3em">M</text>
+        </svg>
+      </div>
+
+      <div class="search-area">
+        <input class="search-input" type="search" placeholder="Buscar productos, tallas, marcas..." aria-label="buscar">
+        <button class="search-btn">Buscar</button>
+      </div>
+
+      <div class="controls">
+        <select class="filter-select" aria-label="filtro">
+          <option value="all">Filtrar: Todos</option>
+          <option value="ropa">Ropa</option>
+          <option value="calzado">Calzado</option>
+          <option value="pelotas">Pelotas</option>
+        </select>
+        <a class="cart-btn" href="../T02/index2.html" aria-label="ir al carrito">Carrito 🛒</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Carrusel de ofertas -->
+    <section class="carousel" aria-label="ofertas">
+      <div class="slides">
+        <img src="https://www-cdn.solodeportes.com.ar/media/catalog/category/08090112_1600x300-Interno.webp" alt="Oferta 1">
+        <img src="https://www-cdn.solodeportes.com.ar/media/catalog/category/10241211_1600x300-Interno.webp" alt="Oferta 2">
+        <img src="https://www-cdn.solodeportes.com.ar/media/catalog/category/112202518101600x300-Interno.webp" alt="Oferta 3">
+      </div>
+      <div class="carousel-controls">
+        <button id="prev">‹</button>
+        <button id="next">›</button>
+      </div>
+    </section>
+
+    <!-- Visto recientemente -->
+    <section class="recent">
+      <h2>¡¡¡VISTO RECIENTEMENTE!!!</h2>
+      <div class="product-grid">
+        <!-- 6 products sample -->
+        <article class="product-card">
+          <img src="https://www-cdn.solodeportes.com.ar/media/catalog/product/z/a/zapatillas-de-running-adidas-runfalcon-5-mujer-negra-100010ih7759001-1.jpg?width=240&height=240" alt="Producto 1">
+          <h3>Zapatilla topper scubidubi</h3>
+          <p class="price">$100</p>
+          <a class="add-cart" href="">Añadir al carrito</a>
+        </article>
+        <article class="product-card">
+          <img src="https://www-cdn.solodeportes.com.ar/media/catalog/product/c/a/campera-de-portugal-puma-king-anthem-prematch-negra-640020783917019-1.jpg?width=700&height=700&store=solodeportes&image-type=image" alt="Producto 2">
+          <h3>Buzo xxx.com</h3>
+          <p class="price">$250</p>
+          <a class="add-cart" href="">Añadir al carrito</a>
+        </article>
+        <article class="product-card">
+          <img src="https://www-cdn.solodeportes.com.ar/media/catalog/product/p/e/pelota-de-futbol-puma-orbita-premier-league-match-amarillo-640040084705001-2.jpg?width=240&height=240&store=solodeportes&image-type=img_hover" alt="Producto 3">
+          <h3>Pelota rebotadora futbol</h3>
+          <p class="price">$200</p>
+          <a class="add-cart" href="">Añadir al carrito</a>
+        </article>
+        <article class="product-card">
+          <img src="https://www-cdn.solodeportes.com.ar/media/catalog/product/z/a/zapatillas-topper-akron-negra-47268148-800010053198001-1.jpg?width=700&height=700&store=solodeportes&image-type=image" alt="Producto 4">
+          <h3>Zapatilla coflita</h3>
+          <p class="price">$240</p>
+          <a class="add-cart" href="">Añadir al carrito</a>
+        </article>
+        <article class="product-card">
+          <img src="https://www-cdn.solodeportes.com.ar/media/catalog/product/b/o/botas-topper-terre-mujer-blanca-800010050201001-1.jpg?width=700&height=700&store=solodeportes&image-type=image" alt="Producto 5">
+          <h3>Zapatilla nike blaca</h3>
+          <p class="price">$35</p>
+          <a class="add-cart" href="">Añadir al carrito</a>
+        </article>
+        <article class="product-card">
+          <img src="https://www-cdn.solodeportes.com.ar/media/catalog/product/b/u/buzo-con-capucha-topper-de-entrenamiento-pro-fleece-gris-800020167444001-1.jpg?width=700&height=700&store=solodeportes&image-type=image" alt="Producto 6">
+          <h3>Buzo grili</h3>
+          <p class="price">$231</p>
+          <a class="add-cart" href="">Añadir al carrito</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Novedades -->
+    <section class="new">
+      <h2>NOVEDADES</h2>
+      <div class="product-grid grid-4">
+        <article class="product-card">
+          <img src="https://www-cdn.solodeportes.com.ar/media/catalog/product/z/a/zapatillas-topper-nova-low-blanca-800010083304001-1.jpg?width=700&height=700&store=solodeportes&image-type=image" alt="Novedad 1">
+          <h3>Zapatilla blanca topper</h3>
+          <p class="price">$80</p>
+          <a class="add-cart" href="">Añadir al carrito</a>
+        </article>
+        <article class="product-card">
+          <img src="https://www-cdn.solodeportes.com.ar/media/catalog/product/g/o/gorra-topper-br-mesh-negra-68024004-800040173499001-1.jpg?width=700&height=700&store=solodeportes&image-type=image" alt="Novedad 2">
+          <h3>Gorra nike puma adidas lacoste asiccs negra</h3>
+          <p class="price">$ 1000</p>
+          <a class="add-cart" href="">Añadir al carrito</a>
+        </article>
+        <article class="product-card">
+          <img src="https://www-cdn.solodeportes.com.ar/media/catalog/product/b/u/buzo-con-capucha-topper-rtc-comfy-ni-o-ni-a-negro-800020167235001-1-1.jpg?width=700&height=700&store=solodeportes&image-type=image" alt="Novedad 3">
+          <h3>Buzo calentador 3000</h3>
+          <p class="price">$3000</p>
+          <a class="add-cart" href="">Añadir al carrito</a>
+        </article>
+        <article class="product-card">
+          <img src="https://www-cdn.solodeportes.com.ar/media/catalog/product/m/o/mochila-topper-tenis-negra-800030173340001-1.jpg?width=700&height=700&store=solodeportes&image-type=image" alt="Novedad 4">
+          <h3>Mochila Topper Tenis Negra</h3>
+          <p class="price">$99.999</p>
+          <a class="add-cart" href="">Añadir al carrito</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>Contacto: <a href="mailto:contacto@ejemplo.com">contacto@ejemplo.com</a> | Tel: +54 9 11 1234 5678</p>
+      <p>&copy; 2025 Marca Deportiva - Prototipo T01</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple carousel
+    (function(){
+      const slides = document.querySelectorAll('.carousel .slides img');
+      let i = 0;
+      function show(idx){
+        slides.forEach((s,si)=> s.style.opacity = si===idx? '1':'0');
+      }
+      document.getElementById('prev').addEventListener('click', ()=>{ i = (i-1+slides.length)%slides.length; show(i); });
+      document.getElementById('next').addEventListener('click', ()=>{ i = (i+1)%slides.length; show(i); });
+      // auto rotate
+      setInterval(()=>{ i = (i+1)%slides.length; show(i); }, 5000);
+      show(0);
+    })();
+  </script>
+</body>
+</html>

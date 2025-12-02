@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout - Prototipo T02</title>
+  <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">Marca<span>Sport</span></div>
+      <nav class="breadcrumbs">Carrito / Checkout</nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="cart-section">
+      <h1>Resumen de tu pedido</h1>
+      <div class="cart-list">
+        <!-- Productos seleccionados (adaptados desde T01) -->
+        <article class="cart-item">
+          <img src="https://www-cdn.solodeportes.com.ar/media/catalog/product/z/a/zapatillas-de-running-adidas-runfalcon-5-mujer-negra-100010ih7759001-1.jpg?width=240&height=240" alt="Zapatillas Runner X">
+          <div class="item-info">
+            <h3>Zapatillas Runner X</h3>
+            <p class="sku">SKU: RUN-001</p>
+            <div class="meta">
+              <span class="qty">1 unidad</span>
+              <span class="price">$89.99</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="cart-item">
+          <img src="https://www-cdn.solodeportes.com.ar/media/catalog/product/p/e/pelota-de-futbol-puma-orbita-premier-league-match-amarillo-640040084705001-2.jpg?width=240&height=240&store=solodeportes&image-type=img_hover" alt="Pelota Oficial">
+          <div class="item-info">
+            <h3>Pelota Oficial</h3>
+            <p class="sku">SKU: BALL-01</p>
+            <div class="meta">
+              <span class="qty">2 unidades</span>
+              <span class="price">$24.99 c/u</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="cart-item">
+          <img src="https://www-cdn.solodeportes.com.ar/media/catalog/product/b/u/buzo-con-capucha-topper-de-entrenamiento-pro-fleece-gris-800020167444001-1.jpg?width=700&height=700&store=solodeportes&image-type=image" alt="Buzo Con Capucha">
+          <div class="item-info">
+            <h3>Buzo Con Capucha</h3>
+            <p class="sku">SKU: HOOD-03</p>
+            <div class="meta">
+              <span class="qty">1 unidad</span>
+              <span class="price">$59.99</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="cart-summary">
+        <div class="summary-row"><span>Subtotal</span><strong>$199.96</strong></div>
+        <div class="summary-row"><span>Envío</span><strong>$9.99</strong></div>
+        <div class="summary-row total"><span>Total</span><strong>$209.95</strong></div>
+      </div>
+    </section>
+
+    <section class="checkout-form">
+      <h2>Datos del comprador y pago</h2>
+      <form id="paymentForm" autocomplete="on">
+        <fieldset class="group personal">
+          <legend>Comprador</legend>
+          <label>Nombre Completo del Comprador
+            <input type="text" name="buyer_name" required placeholder="Nombre y Apellido">
+          </label>
+          <label>N° de Telefono
+            <input type="tel" name="buyer_phone" required placeholder="+54 9 11 1234 5678">
+          </label>
+          <label>Mail
+            <input type="email" name="buyer_email" required placeholder="tu@email.com">
+          </label>
+        </fieldset>
+
+        <fieldset class="group card-owner">
+          <legend>Datos del propietario de la tarjeta</legend>
+          <label>Propietario de la Tarjeta
+            <input type="text" name="card_owner" required placeholder="Nombre en la tarjeta">
+          </label>
+          <label>Telefono del Propietario
+            <input type="tel" name="owner_phone" required placeholder="Teléfono propietario">
+          </label>
+          <label>Mail del Propietario
+            <input type="email" name="owner_email" required placeholder="email@propietario.com">
+          </label>
+        </fieldset>
+
+        <fieldset class="group card-info">
+          <legend>Pago</legend>
+          <label>N° de Tarjeta
+            <input id="cardNumber" type="text" inputmode="numeric" maxlength="19" name="card_number" required placeholder="0000 0000 0000 0000">
+          </label>
+          <div class="row">
+            <label>CVV
+              <input id="cvv" type="text" inputmode="numeric" maxlength="4" name="cvv" required placeholder="123">
+            </label>
+            <label>MM/AA
+              <input id="exp" type="text" maxlength="5" name="expiry" required placeholder="MM/AA">
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button id="submitBtn" type="submit" class="buy-btn">Completar Compra</button>
+        </div>
+
+        <p class="secure-note">Pago seguro • Tu información está encriptada</p>
+      </form>
+    </section>
+  </main>
+
+  <div id="overlay" class="overlay hidden">
+    <div class="modal">
+      <h3>Compra Completa</h3>
+      <p>Gracias por tu compra. Hemos recibido tu orden y te enviaremos la confirmación por e-mail.</p>
+      <button id="closeOverlay">Cerrar</button>
+    </div>
+  </div>
+
+  <script>
+    // Small UI helpers: format card number and expiry, and simple submit flow
+    (function(){
+      const card = document.getElementById('cardNumber');
+      const exp = document.getElementById('exp');
+      function formatCard(e){
+        let v = e.target.value.replace(/\D/g,'').substr(0,16);
+        const parts = [];
+        for(let i=0;i<v.length;i+=4) parts.push(v.substr(i,4));
+        e.target.value = parts.join(' ');
+      }
+      function formatExp(e){
+        let v = e.target.value.replace(/\D/g,'').substr(0,4);
+        if(v.length>2) v = v.substr(0,2) + '/' + v.substr(2);
+        e.target.value = v;
+      }
+      card.addEventListener('input', formatCard);
+      exp.addEventListener('input', formatExp);
+
+      const form = document.getElementById('paymentForm');
+      const overlay = document.getElementById('overlay');
+      const close = document.getElementById('closeOverlay');
+
+      form.addEventListener('submit', function(ev){
+        ev.preventDefault();
+        // Basic visual validation
+        if(!form.reportValidity()) return;
+        overlay.classList.remove('hidden');
+      });
+      close.addEventListener('click', ()=> overlay.classList.add('hidden'));
+    })();
+  </script>
+</body>
+</html>
